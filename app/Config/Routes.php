@@ -56,6 +56,8 @@ $routes->get('salir', 'Login::cerrarSesion');
 
 #usuarios
 $routes->get('usuarios', 'User::index');
+$routes->get('UsuariosCrear', 'User::crear');
+$routes->post('guardarUsuario', 'User::guardar');
 
 
 
