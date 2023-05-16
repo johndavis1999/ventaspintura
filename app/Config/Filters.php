@@ -8,7 +8,10 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
+<<<<<<< HEAD
 use CodeIgniter\Filters\VerificarSesion;
+=======
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
 
 class Filters extends BaseConfig
 {
@@ -22,7 +25,10 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+<<<<<<< HEAD
         'verificarSesion' => \App\Filters\VerificarSesion::class,
+=======
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
     ];
 
     /**
@@ -62,8 +68,12 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
+<<<<<<< HEAD
     public $filters = [
         'verificarSesion' => VerificarSesion::class,
     ];
     
+=======
+    public array $filters = [];
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
 }

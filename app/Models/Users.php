@@ -8,12 +8,15 @@ class Users extends Model{
     // Uncomment below if you want add primary key
     protected $primaryKey = 'id';
     protected $allowedFields = ['id_persona','usuario', 'password','id_rol','estado','imagen'];
+<<<<<<< HEAD
 
     /*public function iD($id)
     {
         $this->select("*");
         return $this->where('id',$id)->first();
     }*/
+=======
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
     
 
     public function obtenerUsuario($usuario)

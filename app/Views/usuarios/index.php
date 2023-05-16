@@ -30,6 +30,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
+<<<<<<< HEAD
                 <h3 class="card-title">Gestionar información de los usuarios creados </h3>
               </div>
               <!-- /.card-header -->
@@ -39,6 +40,12 @@
                       <?php echo session('mensaje') ?>
                   </div>
               <?php }  ?> 
+=======
+                <h3 class="card-title">Gestionar información de los usuarios creados</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -53,6 +60,7 @@
                   <tbody>
                     <?php if($usuarios):?>
                       <?php foreach($usuarios as $user):
+<<<<<<< HEAD
                         if($user['estado']==0):?>
                           <tr class="table-danger"> 
                             <td><?= $user['persona'];?></td>
@@ -101,6 +109,51 @@
                         <?php endif;?>
                       <?php endforeach; ?>
                     <?php endif; ?>
+=======
+                          if($user['estado']==0):
+                            ?>
+                            <tr class="table-danger"> 
+                              <td><?= $user['usuario'];?></td>
+                              <td>************</td>
+                              <td><?= $user['rol'];?></td>
+                              <td><?php echo $user['estado']==1 ? 'Activo' : 'Inactivo'  ?></td>
+                              <td>
+                                <div class="dropdown">
+                                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-list"></i> Opciones
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="<?=base_url('editarUsuario/'.$user['id']);?>"><i class="fas fa-edit"></i> Editar</a></li>
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editModal<?=$user['id']?>"><i class="fa-solid fa-key"></i> Reestablecer contraseña</a></li>
+                                    <li><a class="dropdown-item" href="<?=base_url('borrarUsuario/'.$user['id']);?>"><i class="fas fa-trash-alt"></i> Borrar</a></li>
+                                  </ul>
+                                </div>
+                              </td>
+                            </tr>
+                          <?php else:?>
+                          <tr> 
+                              <td><?= $user['usuario'];?></td>
+                              <td>************</td>
+                              <td><?= $user['rol'];?></td>
+                              <td><?php echo $user['estado']==1 ? 'Activo' : 'Inactivo'  ?></td>
+                              <td>
+                                  <div class="dropdown">
+                                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          <i class="fas fa-list"></i> Opciones
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="<?=base_url('editarUsuario/'.$user['id']);?>"><i class="fas fa-edit"></i> Editar</a></li>
+                                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editModal<?=$user['id']?>"><i class="fa-solid fa-key"></i> Reestablecer contraseña</a></li>
+                                          <li><a class="dropdown-item" href="<?=base_url('borrarUsuario/'.$user['id']);?>"><i class="fas fa-trash-alt"></i> Borrar</a></li>
+                                      </ul>
+                                  </div>
+                              </td>
+                          </tr>
+                      <?php endif;?>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
                   </tbody>
                 </table>
               </div>

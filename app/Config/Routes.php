@@ -54,6 +54,7 @@ $routes->get('registro', 'Login::registro');
 $routes->post('acceder', 'Login::acceder');
 $routes->get('salir', 'Login::cerrarSesion');
 
+<<<<<<< HEAD
 
 
 
@@ -87,3 +88,13 @@ $routes->post('actualizarPersona', 'Persona::actualizar', ['filter' => 'verifica
 #facturacion
 $routes->get('crearFact', 'Facturacion::crear', ['filter' => 'verificarSesion']);
 $routes->get('  ', 'Facturacion::ver', ['filter' => 'verificarSesion']);
+=======
+#usuarios
+$routes->get('usuarios', 'User::index');
+$routes->get('UsuariosCrear', 'User::crear');
+$routes->post('guardarUsuario', 'User::guardar');
+
+
+
+$routes->get('dashboard', 'Dashboard::index');
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2

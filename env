@@ -20,7 +20,11 @@
 # APP
 #--------------------------------------------------------------------
 
+<<<<<<< HEAD
 # app.baseURL = 'hhtp://localhost'
+=======
+# app.baseURL = 'hhtp://localhost:8080'
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
 # If you have trouble with `.`, you could also use `_`.
 # app_baseURL = ''
 # app.forceGlobalSecureRequests = false

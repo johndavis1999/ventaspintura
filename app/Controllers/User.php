@@ -3,14 +3,18 @@
 namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Users;
+<<<<<<< HEAD
 use App\Models\Personas;
 use App\Models\Roles;
+=======
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
 
 class User extends BaseController
 {
     
     public function index()
     {
+<<<<<<< HEAD
         $user = new Users();
         $data['usuarios'] = $user->select('usuarios.*, personas.nombres as persona, roles.descripcion as rol_usuario')
                                     ->join('personas', 'personas.id = usuarios.id_persona', 'left')
@@ -21,27 +25,61 @@ class User extends BaseController
         $data['titulo'] = $titulo;
         return view('usuarios/index', $data);
 
+=======
+        if ($this->validarSesion()) {
+            return redirect()->to(base_url(''));
+        }
+        if(session('id_rol') != '1'){
+            return redirect()->to(base_url(''));
+        }
+
+        $usuario = new Users();
+        $datos['usuarios'] = $usuario->orderBy('id','ASC')->findAll();
+        $titulo = "Usuarios";
+        return view('usuarios/index',['titulo' => $titulo],$datos);
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
     }
     
     public function crear()
     {
+<<<<<<< HEAD
         $titulo = "Usuarios";
         $data['titulo'] = $titulo;
         return view('usuarios/crear', $data);
     }
 
     public function guardar(){
+=======
+        if ($this->validarSesion()) {
+            return redirect()->to(base_url(''));
+        }
+        $titulo = "Usuarios";
+        return view('usuarios/crear',['titulo' => $titulo]);
+    }
+
+    public function guardar(){
+
+        if ($this->validarSesion()) {
+            return redirect()->to(base_url(''));
+        }
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
         
         $users = new Users();
         $usuario = $this->request->getPost('usuario');
         $password = $this->request->getPost('password');
         $id_persona = $this->request->getPost('id_persona');
         $id_rol = $this->request->getPost('id_rol');
+<<<<<<< HEAD
         #$imagen = $this->request->getPost('imagen');
         $imagen = $this->request->getFile('imagen');
         $estado = 1;
 
         //Validar si la persona seleccionada ya tiene un usuario creado
+=======
+        $imagen = $this->request->getPost('imagen');
+        $estado = 1;
+
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
         $existePersona = $users->validarPersona($id_persona);
         if (is_array($existePersona) && count($existePersona) > 0) {
             //return redirect()->back()->withInput()->with('mensaje', 'La persona seleccionada ya tiene un usuario creado');
@@ -50,6 +88,7 @@ class User extends BaseController
             return $this->response->redirect(base_url('UsuariosCrear'));
         }
 
+<<<<<<< HEAD
         //validar si el nombre de usuario ya esta en uso
         $usuarioExise = $users->obtenerUsuario($usuario);
         if (is_array($usuarioExise) && count($usuarioExise) > 0) {
@@ -59,17 +98,31 @@ class User extends BaseController
             return $this->response->redirect(base_url('UsuariosCrear'));
         }
 
+=======
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
         $validacion = $this->validate([
             'usuario'=>'required|min_length[6]',
             'password'=>'required|min_length[8]',
             'id_persona' => 'required|numeric',
+<<<<<<< HEAD
             'id_rol' => 'required|numeric'
         ]);
+=======
+            'id_rol' => 'required|numeric',
+            'imagen' => [
+                'uploaded[imagen]',
+                'mime_in[imagen,image/jpg,image/jpeg,image/png]',
+                'max_size[imagen,1024]',
+            ]
+        ]);
+
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
         if(!$validacion){
             $session = session();
             $session->setFlashData('mensaje','Hay campos vacios, por favor completar el formulario');
             return $this->response->redirect(base_url('UsuariosCrear'));
         }
+<<<<<<< HEAD
         if ($imagen && !$imagen->hasMoved()) {
             $validarImagen = $this->validate([
                 'imagen' => [
@@ -86,10 +139,16 @@ class User extends BaseController
                 return $this->response->redirect(base_url('UsuariosCrear'));
             }
     
+=======
+
+
+        if($imagen=$this->request->getFile('imagen')){
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
             $nuevoNombre=$imagen->getRandomName();
             $ruta = '../public/users/img/';
             $imagen->move($ruta,$nuevoNombre);
             $imagenNombre = $ruta .  $nuevoNombre;
+<<<<<<< HEAD
         } else {
             $imagenNombre = null; // Si no se carga imagen, deja el campo "imagen" vacío en la BD
         }
@@ -207,6 +266,16 @@ class User extends BaseController
         $users->update($id,$dataUpdate);
         return $this->response->redirect(site_url('/usuarios'));
     }
+=======
+            // Hash la contraseña
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            // Crea el nuevo usuario
+            $usuarioNuevo = ['usuario' => $usuario, 'password' => $passwordHash, 'id_persona' => $id_persona, 'id_rol' => $id_rol, 'estado' => $estado, 'imagen' => $imagenNombre];
+            $users->guardar($usuarioNuevo);
+        }
+        return redirect()->to(base_url('usuarios'))->with('mensaje', 'Usuario creado exitosamente');
+    }
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
 
    
 }

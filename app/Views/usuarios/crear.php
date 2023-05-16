@@ -35,8 +35,11 @@
                                     <option value="">Escoja una persona</option>
                                     <option value="1">John Davis</option>
                                     <option value="2">Fernando Cervantes</option>
+<<<<<<< HEAD
                                     <option value="3">3Fernando Cervantes</option>
                                     <option value="4">4Fernando Cervantes</option>
+=======
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
                                 </select>
                             </div>
                             <div class="form-group">
@@ -60,7 +63,11 @@
                                 <label for="exampleInputFile">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
+<<<<<<< HEAD
                                         <input type="file" class="custom-file-input" id="exampleInputFile" name="imagen" required>
+=======
+                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="imagen">
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
                                         <label class="custom-file-label" for="exampleInputFile">Seleccionar archivo</label>
                                     </div>
                                 </div>

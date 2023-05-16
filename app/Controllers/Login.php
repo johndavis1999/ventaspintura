@@ -33,7 +33,10 @@ class Login extends BaseController
                 'id' => $datosUsuario['id'],
                 'id_rol' => $datosUsuario['id_rol'],
                 'id_persona' => $datosUsuario['id_persona'],
+<<<<<<< HEAD
                 'imagen' => $datosUsuario['imagen'],
+=======
+>>>>>>> d1476fef7db13c36fbe91007409866aadda36ff2
                 'estado' => $datosUsuario['estado'],
                 'nombreUsuario' => $nombreUsuario // Nueva línea para guardar el nombre del usuario en la sesión
             ];
